@@ -1,13 +1,14 @@
 "use client"
 
 import { cn } from '@/lib/utils'
-import { ChevronsLeft, MenuIcon } from 'lucide-react'
+import { ChevronsLeft, MenuIcon, PlusCircle, Search, Settings } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import React, { ElementRef, useRef, useState, useEffect } from 'react'
 import { useMediaQuery } from 'usehooks-ts'
-import { UserItem } from '.'
-import { useQuery } from 'convex/react'
+import { Item, UserItem } from '.'
+import { useMutation, useQuery } from 'convex/react'
 import { api } from '@/convex/_generated/api'
+import { toast } from 'sonner'
 
 const Navigation = () => {
   const pathname = usePathname()
@@ -18,6 +19,7 @@ const Navigation = () => {
   const [isResetting, setIsResetting] = useState(false)
   const [isCollapsed, setIsCollapsed] = useState(true)
   const documents = useQuery(api.documents.get)
+  const create = useMutation(api.documents.create)
 
   useEffect(() => {
     if(isMobile){
@@ -90,6 +92,15 @@ const Navigation = () => {
     }
   }
 
+  const handleCreate = () => {
+    const promise = create({title: "Untitled"})
+    toast.promise(promise, {
+      loading: "Creating a new note...",
+      success: "Note created!",
+      error: "Failed to create new note."
+    })
+  }
+
   return (
     <>
       <aside ref={sidebarRef} className={cn('group/sidebar h-full bg-secondary overflow-y-auto relative w-60 flex flex-col z-[99999]', isResetting && "transition-all ease-in-out duration-300", isMobile && "w-0")}>
@@ -98,6 +109,9 @@ const Navigation = () => {
         </div>
         <div>
           <UserItem />
+          <Item onClick={handleCreate} label="Search" icon={Search} isSearch />
+          <Item onClick={handleCreate} label="Settings" icon={Settings} />
+          <Item onClick={handleCreate} label="New page" icon={PlusCircle} />
         </div>
         <div className='mt-4'>
           {documents?.map((document) => (
