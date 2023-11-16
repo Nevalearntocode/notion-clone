@@ -26,4 +26,11 @@ interface ConfirmModalProps {
   onConfirm: () => void;
 }
 
-export type { DocumentListProps, ItemProps, ConfirmModalProps };
+interface SearchStore {
+  isOpen: boolean;
+  onOpen: () => void;
+  onClose: () => void;
+  toggle: () => void;
+}
+
+export type { DocumentListProps, ItemProps, ConfirmModalProps, SearchStore };

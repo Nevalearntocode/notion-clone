@@ -11,8 +11,10 @@ import { api } from '@/convex/_generated/api'
 import { toast } from 'sonner'
 import { Popover, PopoverContent } from '@/components/ui/popover'
 import { PopoverTrigger } from '@radix-ui/react-popover'
+import { useSearch } from '@/hooks'
 
 const Navigation = () => {
+  const search = useSearch()
   const pathname = usePathname()
   const isMobile = useMediaQuery("(max-width: 768px")
   const isResizingRef = useRef(false)
@@ -110,7 +112,7 @@ const Navigation = () => {
         </div>
         <div>
           <UserItem />
-          <Item onClick={handleCreate} label="Search" icon={Search} isSearch />
+          <Item onClick={search.onOpen} label="Search" icon={Search} isSearch />
           <Item onClick={handleCreate} label="Settings" icon={Settings} />
           <Item onClick={handleCreate} label="New page" icon={PlusCircle} />
         </div>
