@@ -33,4 +33,16 @@ interface SearchStore {
   toggle: () => void;
 }
 
-export type { DocumentListProps, ItemProps, ConfirmModalProps, SearchStore };
+interface SettingStore {
+  isOpen: boolean;
+  onOpen: () => void;
+  onClose: () => void;
+}
+
+export type {
+  DocumentListProps,
+  ItemProps,
+  ConfirmModalProps,
+  SearchStore,
+  SettingStore,
+};

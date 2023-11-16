@@ -59,7 +59,7 @@ const Item = ({id, active, documentIcon, isSearch, expanded, level = 0, onExpand
   return (
     <div onClick={onClick} role="button" style={{paddingLeft: level ? `${(level*12)+12}px` : "12px"}} className={cn("group min-h-[27px] text-sm py-1 flex pr-3 w-full hover:bg-primary/5 items-center text-muted-foreground font-medium", active && "bg-primary/5 text-primary")}>
       {!!id && (
-        <div role="button" className="h-full rounded-sm hover:bg-neutral-300 dark:bg-neutral-600 mr-1" onClick={handleExpand}>
+        <div role="button" className="h-full rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 mr-1" onClick={handleExpand}>
           <ChevronIcon className="h-4 w-4 shrink-0 text-muted-foreground/50" />
         </div>
       )}
