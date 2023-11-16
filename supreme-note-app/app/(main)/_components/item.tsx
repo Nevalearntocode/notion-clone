@@ -40,7 +40,7 @@ const Item = ({id, active, documentIcon, isSearch, expanded, level = 0, onExpand
       if(!expanded){
         onExpand?.()
       }
-      router.push(`/docuemnts/${documentId}`)
+      // router.push(`/documents/${documentId}`)
     })
     toast.promise(promise, {
       loading: "Creating a new note...",

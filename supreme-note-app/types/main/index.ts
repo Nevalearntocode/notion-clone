@@ -1,5 +1,6 @@
 import { Doc, Id } from "@/convex/_generated/dataModel";
 import { LucideIcon } from "lucide-react";
+import React from "react";
 
 interface ItemProps {
   id?: Id<"documents">;
@@ -10,7 +11,7 @@ interface ItemProps {
   level?: number;
   onExpand?: () => void;
   label: string;
-  onClick: () => void;
+  onClick?: () => void;
   icon: LucideIcon;
 }
 
@@ -20,4 +21,9 @@ interface DocumentListProps {
   data?: Doc<"documents">[];
 }
 
-export type { DocumentListProps, ItemProps };
+interface ConfirmModalProps {
+  children: React.ReactNode;
+  onConfirm: () => void;
+}
+
+export type { DocumentListProps, ItemProps, ConfirmModalProps };
