@@ -5,8 +5,8 @@ import { ChevronsLeft, MenuIcon, PlusCircle, Search, Settings } from 'lucide-rea
 import { usePathname } from 'next/navigation'
 import React, { ElementRef, useRef, useState, useEffect } from 'react'
 import { useMediaQuery } from 'usehooks-ts'
-import { Item, UserItem } from '.'
-import { useMutation, useQuery } from 'convex/react'
+import { DocumentList, Item, UserItem } from '.'
+import { useMutation } from 'convex/react'
 import { api } from '@/convex/_generated/api'
 import { toast } from 'sonner'
 
@@ -18,7 +18,6 @@ const Navigation = () => {
   const navbarRef = useRef<ElementRef<"div">>(null)
   const [isResetting, setIsResetting] = useState(false)
   const [isCollapsed, setIsCollapsed] = useState(true)
-  const documents = useQuery(api.documents.get)
   const create = useMutation(api.documents.create)
 
   useEffect(() => {
@@ -114,11 +113,7 @@ const Navigation = () => {
           <Item onClick={handleCreate} label="New page" icon={PlusCircle} />
         </div>
         <div className='mt-4'>
-          {documents?.map((document) => (
-            <p key={document._id}>
-              {document._id}  
-            </p>
-          ))}
+          <DocumentList />
         </div>
         <div onMouseDown={handleMouseDown} onClick={resetWidth} className='opacity-0 group-hover/sidebar:opacity-100 transition cursor-ew-resize absolute h-full w-1 bg-primary/10 right-0 top-0'/>
       </aside>
