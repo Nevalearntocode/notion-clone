@@ -2,10 +2,10 @@
 
 import { cn } from '@/lib/utils'
 import { ChevronsLeft, MenuIcon, Plus, PlusCircle, Search, Settings, Trash } from 'lucide-react'
-import { usePathname } from 'next/navigation'
+import { useParams, usePathname } from 'next/navigation'
 import React, { ElementRef, useRef, useState, useEffect } from 'react'
 import { useMediaQuery } from 'usehooks-ts'
-import { DocumentList, Item, TrashBox, UserItem } from '.'
+import { DocumentList, Item, Navbar, TrashBox, UserItem } from '.'
 import { useMutation } from 'convex/react'
 import { api } from '@/convex/_generated/api'
 import { toast } from 'sonner'
@@ -16,6 +16,7 @@ import { useSearch, useSetting } from '@/hooks'
 const Navigation = () => {
   const settings = useSetting()
   const search = useSearch()
+  const params = useParams()
   const pathname = usePathname()
   const isMobile = useMediaQuery("(max-width: 768px")
   const isResizingRef = useRef(false)
@@ -132,9 +133,13 @@ const Navigation = () => {
         <div onMouseDown={handleMouseDown} onClick={resetWidth} className='opacity-0 group-hover/sidebar:opacity-100 transition cursor-ew-resize absolute h-full w-1 bg-primary/10 right-0 top-0'/>
       </aside>
       <div ref={navbarRef} className={cn("absolute top-0 z-[99999] left-60 w-[calc(100%-240px)]", isResetting && "transition-all ease-in-out duration-300", isMobile && "left-0 w-full")}>
-        <nav className='bg-transparent px-3 py-2 w-full'>
-          {isCollapsed && <MenuIcon onClick={resetWidth} className='h-6 w-6 text-muted-foreground' role='button' />}
-        </nav>
+        {!!params.documentId ? (
+            <Navbar isCollapsed={isCollapsed} onResetWidth={resetWidth} />
+        ) : (
+          <nav className='bg-transparent px-3 py-2 w-full'>
+            {isCollapsed && <MenuIcon onClick={resetWidth} className='h-6 w-6 text-muted-foreground' role='button' />}
+          </nav>
+        )}
       </div>
     </>
   )

@@ -39,10 +39,21 @@ interface SettingStore {
   onClose: () => void;
 }
 
+interface NavbarProps {
+  isCollapsed: boolean;
+  onResetWidth: () => void;
+}
+
+interface TitleProps {
+  initialData: Doc<"documents">;
+}
+
 export type {
   DocumentListProps,
   ItemProps,
   ConfirmModalProps,
   SearchStore,
   SettingStore,
+  NavbarProps,
+  TitleProps,
 };
