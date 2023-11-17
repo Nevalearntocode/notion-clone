@@ -12,9 +12,11 @@ interface SettingStore {
 }
 
 interface ImageStore {
+  url?: string;
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
+  onReplace: (url: string) => void;
 }
 
 export type { SettingStore, SearchStore, ImageStore };

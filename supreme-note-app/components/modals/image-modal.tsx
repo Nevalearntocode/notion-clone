@@ -31,6 +31,9 @@ const ImageModal = () => {
 
       const res = await edgestore.publicFiles.upload({
         file,
+        options: {
+          replaceTargetUrl: image.url,
+        },
       });
 
       await update({
