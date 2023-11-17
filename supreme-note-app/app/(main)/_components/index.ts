@@ -5,6 +5,8 @@ import DocumentList from "./document-list";
 import TrashBox from "./trash-box";
 import Navbar from "./navbar";
 import Title from "./title";
+import Banner from "./banner";
+import Menu from "./menu";
 
 export {
     Navigation,
@@ -13,5 +15,7 @@ export {
     DocumentList,
     TrashBox,
     Navbar,
-    Title
+    Title,
+    Banner,
+    Menu,
 }

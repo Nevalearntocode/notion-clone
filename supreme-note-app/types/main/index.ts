@@ -48,6 +48,14 @@ interface TitleProps {
   initialData: Doc<"documents">;
 }
 
+interface BannerProps {
+  documentId: Id<"documents">;
+}
+
+interface MenuProps {
+  documentId: Id<"documents">;
+}
+
 export type {
   DocumentListProps,
   ItemProps,
@@ -56,4 +64,6 @@ export type {
   SettingStore,
   NavbarProps,
   TitleProps,
+  BannerProps,
+  MenuProps,
 };
