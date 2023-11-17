@@ -56,6 +56,12 @@ interface MenuProps {
   documentId: Id<"documents">;
 }
 
+interface DocumentIdPageProps {
+  params: {
+    documentId: Id<"documents">;
+  };
+}
+
 export type {
   DocumentListProps,
   ItemProps,
@@ -66,4 +72,5 @@ export type {
   TitleProps,
   BannerProps,
   MenuProps,
+  DocumentIdPageProps,
 };
