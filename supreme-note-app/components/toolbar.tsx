@@ -7,6 +7,7 @@ import IconPicker from "./icon-picker";
 import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import TextAreaAutosize from "react-textarea-autosize";
+import useImage from "@/hooks/use-image";
 
 const Toolbar = ({ initialData, preview }: ToolbarProps) => {
   const inputRef = useRef<ElementRef<"textarea">>(null);
@@ -18,6 +19,8 @@ const Toolbar = ({ initialData, preview }: ToolbarProps) => {
   const update = useMutation(api.documents.update);
 
   const removeIcon = useMutation(api.documents.removeIcon);
+
+  const image = useImage()
 
   const enableInput = () => {
     if (preview) return;
@@ -99,7 +102,7 @@ const Toolbar = ({ initialData, preview }: ToolbarProps) => {
             className="text-muted-foreground text-xs"
             variant={`outline`}
             size={`sm`}
-            onClick={() => {}}
+            onClick={image.onOpen}
           >
             <ImageIcon className="h-4 w-4 mr-2" />
             Add cover

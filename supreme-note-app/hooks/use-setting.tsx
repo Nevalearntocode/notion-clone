@@ -1,4 +1,4 @@
-import { SettingStore } from "@/types/main";
+import { SettingStore } from "@/types/hook";
 import React from "react";
 import { create } from "zustand";
 

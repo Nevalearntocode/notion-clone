@@ -2,6 +2,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import SettingModal from "../modals/setting-modal";
+import ImageModal from "../modals/image-modal";
 
 const ModalProvider = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -17,6 +18,7 @@ const ModalProvider = () => {
   return (
     <>
       <SettingModal />
+      <ImageModal />
     </>
   );
 };

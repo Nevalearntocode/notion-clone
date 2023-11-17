@@ -12,4 +12,9 @@ interface IconPickerProps {
   asChild?: boolean;
 }
 
-export type { ToolbarProps, IconPickerProps };
+interface CoverProps {
+  url?: string,
+  preview?: string,
+}
+
+export type { ToolbarProps, IconPickerProps, CoverProps };

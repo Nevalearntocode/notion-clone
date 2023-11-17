@@ -26,19 +26,6 @@ interface ConfirmModalProps {
   onConfirm: () => void;
 }
 
-interface SearchStore {
-  isOpen: boolean;
-  onOpen: () => void;
-  onClose: () => void;
-  toggle: () => void;
-}
-
-interface SettingStore {
-  isOpen: boolean;
-  onOpen: () => void;
-  onClose: () => void;
-}
-
 interface NavbarProps {
   isCollapsed: boolean;
   onResetWidth: () => void;
@@ -66,8 +53,6 @@ export type {
   DocumentListProps,
   ItemProps,
   ConfirmModalProps,
-  SearchStore,
-  SettingStore,
   NavbarProps,
   TitleProps,
   BannerProps,

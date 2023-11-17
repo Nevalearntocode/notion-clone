@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 import React from "react";
-import { SearchStore } from "@/types/main";
+import { SearchStore } from "@/types/hook";
 
 const useSearch = create<SearchStore>((set, get) => ({
   isOpen: false,
@@ -9,7 +9,5 @@ const useSearch = create<SearchStore>((set, get) => ({
   onClose: () => set({ isOpen: false }),
   toggle: () => set({ isOpen: !get().isOpen }),
 }));
-
-
 
 export default useSearch;
