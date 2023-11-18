@@ -13,8 +13,8 @@ interface IconPickerProps {
 }
 
 interface CoverProps {
-  url?: string,
-  preview?: string,
+  url?: string;
+  preview?: boolean;
 }
 
 export type { ToolbarProps, IconPickerProps, CoverProps };

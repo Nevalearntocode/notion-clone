@@ -49,6 +49,16 @@ interface DocumentIdPageProps {
   };
 }
 
+interface EditorProps {
+  onChange: (value: string) => void;
+  initialContent?: string;
+  editable?: boolean;
+}
+
+interface PublishProps {
+  initialData: Doc<"documents">;
+}
+
 export type {
   DocumentListProps,
   ItemProps,
@@ -58,4 +68,6 @@ export type {
   BannerProps,
   MenuProps,
   DocumentIdPageProps,
+  EditorProps,
+  PublishProps,
 };
